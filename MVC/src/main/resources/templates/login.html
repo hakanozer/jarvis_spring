@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -12,12 +12,20 @@
             <div class="col-sm-4"></div>
             <div class="col-sm-4">
                 <h2>Admin Login</h2>
+
+                <div th:if="${errors != null}">
+                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                        <li th:each="item : ${errors}" th:text="${item.getField() + ' : ' + item.getDefaultMessage()}" ></li>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                </div>
+
                 <form method="post" action="/login" >
                     <div class="mb-3">
-                        <input name="email" type="email" placeholder="E-Mail" class="form-control" />
+                        <input required name="email" type="email" placeholder="E-Mail" class="form-control" />
                     </div>
                     <div class="mb-3">
-                        <input name="password" type="password" placeholder="Password" class="form-control" />
+                        <input required name="password" type="password" placeholder="Password" class="form-control" />
                     </div>
                     <button type="submit" class="btn btn-success">Send</button>
                 </form>
