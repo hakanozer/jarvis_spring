@@ -5,6 +5,7 @@ import com.works.repositoies.AdminRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.Optional;
 
 @Service
@@ -13,6 +14,7 @@ public class AdminService {
 
     final AdminRepository adminRepository;
     final TinkEncDec tinkEncDec;
+    final HttpServletRequest request;
 
     public boolean save(Admin admin) {
         boolean status = false;
@@ -32,6 +34,8 @@ public class AdminService {
             Admin adm = optionalAdmin.get();
             String dbPass = tinkEncDec.decrypt( adm.getPassword() );
             if ( dbPass.equals(admin.getPassword()) ) {
+                // create session
+                request.getSession().setAttribute("user", adm );
                 status = true;
             }
         }

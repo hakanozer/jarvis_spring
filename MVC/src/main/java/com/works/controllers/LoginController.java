@@ -40,8 +40,9 @@ public class LoginController {
             model.addAttribute("errors", bindingResult.getFieldErrors());
         }else {
             boolean status = adminService.login(admin);
-            System.out.println("Login status : " + status);
-            logger.info( admin.toString() );
+            if (status) {
+                return "redirect:/dashboard";
+            }
         }
         return "login";
     }
