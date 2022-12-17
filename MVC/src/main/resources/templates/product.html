@@ -9,7 +9,17 @@
 <body>
     <div class="container">
         <div th:replace="inc/navbar"></div>
-        <h2>Welcome Product</h2>
+        <h2>All Product</h2>
+        <div th:if="${list != null}" class="row">
+            <div th:each="item, iter : ${list}" class="card col-sm-4">
+                <img th:src="${item.thumbnail}" class="card-img-top" style="height: 200px;" >
+                <div class="card-body">
+                    <h5 class="card-title" th:text="${item.title}"></h5>
+                    <p class="card-text" th:text="${item.description}" > </p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 </html>

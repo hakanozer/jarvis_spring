@@ -3,6 +3,7 @@ package com.works.controllers;
 import com.works.entities.Todo;
 import com.works.services.TodoService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.cache.CacheManager;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class DashboardController {
 
     final TodoService todoService;
+    final CacheManager cacheManager;
 
     @GetMapping("/dashboard")
     public String dashboard(@RequestParam(defaultValue = "0") String p,  Model model) {
@@ -29,6 +31,7 @@ public class DashboardController {
         model.addAttribute("list", page.getContent() );
         model.addAttribute("pages", pages);
         model.addAttribute("currentPage", page.getPageable().getPageNumber() );
+        cacheManager.getCache("allProduct").clear();
         return "dashboard";
     }
 
