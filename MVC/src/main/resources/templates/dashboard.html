@@ -36,29 +36,33 @@
                         <th scope="col">No</th>
                         <th scope="col">Title</th>
                         <th scope="col">Detail</th>
+                        <th scope="col">Date</th>
                         <th scope="col">Color</th>
                         <th scope="col">Delete</th>
                     </tr>
                     </thead>
-                    <tbody>
+                    <tbody th:if="${list != null}">
 
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Title</td>
-                        <td>Detail</td>
-                        <td>#ff00ff</td>
-                        <td>
-                            <a href="delete/1" class="btn btn-danger btn-sm">Delete</a>
-                        </td>
-                    </tr>
+                        <tr th:each="item, iter : ${list}">
+                            <th scope="row" th:text="${iter.index + 1}"></th>
+                            <td th:text="${item.title}"></td>
+                            <td th:text="${item.detail}"></td>
+                            <td th:text="${item.date}"></td>
+                            <td>
+                               <div th:style="${ 'width: 25px; height: 25px; background-color: ' + item.color }"></div>
+                            </td>
+                            <td>
+                                <a th:href="${'/todoDelete/'+item.tid}" class="btn btn-danger btn-sm">Delete</a>
+                            </td>
+                        </tr>
 
                     </tbody>
                 </table>
-                <nav>
+                <nav th:if="${pages != null}">
                     <ul class="pagination  justify-content-start">
-                        <li class="page-item"><a class="page-link" href="#">1</a></li>
-                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li th:each="item, iter : ${pages}" th:class="${iter.index == currentPage ? 'page-item active': 'page-item' }" >
+                            <a class="page-link" th:href="${ '/dashboard?p='+iter.index }" th:text="${iter.index + 1}"></a>
+                        </li>
                     </ul>
                 </nav>
             </div>
