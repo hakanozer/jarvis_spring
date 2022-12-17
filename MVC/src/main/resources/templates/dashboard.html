@@ -9,7 +9,60 @@
 <body>
     <div class="container">
         <div th:replace="inc/navbar"></div>
-        <h2>Welcome Dashboard</h2>
+        <div class="row">
+            <div class="col-sm-6">
+                <h2>Todo Add</h2>
+                <form method="post" action="/addTodo">
+                    <div class="mb-3">
+                        <input name="title" type="text" placeholder="Title" class="form-control" />
+                    </div>
+                    <div class="mb-3">
+                        <input name="detail" type="text" placeholder="Detail" class="form-control" />
+                    </div>
+                    <div class="mb-3">
+                        <input name="date" type="date" placeholder="Date" class="form-control" />
+                    </div>
+                    <div class="mb-3">
+                        <input name="color" type="color" placeholder="Color" class="form-control form-control-color" />
+                    </div>
+                    <button type="submit" class="btn btn-success">Send</button>
+                </form>
+            </div>
+            <div class="col-sm-6">
+                <h2>Todo List</h2>
+                <table class="table table-hover">
+                    <thead>
+                    <tr>
+                        <th scope="col">No</th>
+                        <th scope="col">Title</th>
+                        <th scope="col">Detail</th>
+                        <th scope="col">Color</th>
+                        <th scope="col">Delete</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>Title</td>
+                        <td>Detail</td>
+                        <td>#ff00ff</td>
+                        <td>
+                            <a href="delete/1" class="btn btn-danger btn-sm">Delete</a>
+                        </td>
+                    </tr>
+
+                    </tbody>
+                </table>
+                <nav>
+                    <ul class="pagination  justify-content-start">
+                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
     </div>
 </body>
 </html>
