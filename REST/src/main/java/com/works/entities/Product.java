@@ -11,8 +11,10 @@ import javax.validation.constraints.*;
 @Data
 public class Product {
 
+    @Min(1)
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(nullable = false)
     private Long pid;
 
     @Length(min = 2, max = 100)

@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -39,6 +40,38 @@ public class ProductService {
             }
             hm.put(REnum.result, product);
             return new ResponseEntity(hm, HttpStatus.BAD_REQUEST );
+        }
+    }
+
+
+    public ResponseEntity update(Product product) {
+        Map<REnum, Object> hm = new LinkedHashMap<>();
+        Optional<Product> optionalProduct = repository.findById(product.getPid());
+        if (optionalProduct.isPresent()) {
+            repository.saveAndFlush(product);
+            hm.put(REnum.status, true);
+            hm.put(REnum.result, product );
+            return new ResponseEntity(hm, HttpStatus.OK);
+        }else {
+            hm.put(REnum.status, false);
+            hm.put(REnum.message, "Product Not found");
+            return new ResponseEntity(hm, HttpStatus.BAD_REQUEST);
+        }
+    }
+
+
+    public ResponseEntity delete( String stPid ) {
+        Map<REnum, Object> hm = new LinkedHashMap<>();
+        try {
+            long pid = Long.parseLong(stPid);
+            repository.deleteById(pid);
+            hm.put(REnum.status, true);
+            hm.put(REnum.message, "Delete Success" );
+            return new ResponseEntity(hm, HttpStatus.OK);
+        }catch (Exception Ex) {
+            hm.put(REnum.status, false);
+            hm.put(REnum.message, "Delete Error (ID) :" + stPid  );
+            return new ResponseEntity(hm, HttpStatus.OK);
         }
     }
 
