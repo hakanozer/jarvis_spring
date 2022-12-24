@@ -23,6 +23,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
         // H2 Console Permission
         http.headers().frameOptions().disable();
+
     }
 
 }
