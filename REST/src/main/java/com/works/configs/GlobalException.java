@@ -5,6 +5,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.validation.FieldError;
+import org.springframework.web.HttpRequestMethodNotSupportedException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
@@ -30,6 +31,16 @@ public class GlobalException {
         hm.put(REnum.status, false);
         hm.put(REnum.message, message);
         return new ResponseEntity(hm, HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler(HttpRequestMethodNotSupportedException.class)
+    public ResponseEntity httpRequestMethodNotSupported(HttpRequestMethodNotSupportedException ex) {
+        Map<REnum, Object> hm = new LinkedHashMap<>();
+        List<String> ls = new ArrayList<>();
+        hm.put(REnum.status, false);
+        ls.add( ex.getMessage() );
+        hm.put(REnum.errors, ls);
+        return new ResponseEntity(hm, HttpStatus.METHOD_NOT_ALLOWED);
     }
 
     private List parseErrors(List<FieldError> fieldErrors) {

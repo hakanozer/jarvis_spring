@@ -3,17 +3,18 @@ package com.works.entities;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Data
-public class Note {
+public class Role {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long nid;
+    private Long rid;
+    private String roleName;
 
-    @Column(unique = true)
-    private String title;
-    private String detail;
+    @ManyToMany(mappedBy = "roles")
+    List<Customer> customers;
 
 }
