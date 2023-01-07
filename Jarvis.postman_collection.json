@@ -1,0 +1,659 @@
+{
+	"info": {
+		"_postman_id": "14b7968a-244a-4a46-b723-db6c539f0e78",
+		"name": "--Jarvis",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "1939021"
+	},
+	"item": [
+		{
+			"name": "product/list",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "ali@mail.com",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "12345",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8090/product/list?page=3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"product",
+						"list"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "3"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "http://localhost:8090/product/list",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8090/product/list",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"product",
+								"list"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "1; mode=block"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 24 Dec 2022 10:58:35 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": true,\n    \"result\": [\n        {\n            \"pid\": 1,\n            \"title\": \"TV\",\n            \"price\": 15000\n        },\n        {\n            \"pid\": 4,\n            \"title\": \"Tablet\",\n            \"price\": 11000\n        },\n        {\n            \"pid\": 5,\n            \"title\": \"\",\n            \"price\": -10\n        },\n        {\n            \"pid\": 6,\n            \"title\": null,\n            \"price\": -10\n        },\n        {\n            \"pid\": 7,\n            \"title\": null,\n            \"price\": -10\n        },\n        {\n            \"pid\": 8,\n            \"title\": null,\n            \"price\": -10\n        },\n        {\n            \"pid\": 9,\n            \"title\": null,\n            \"price\": -10\n        },\n        {\n            \"pid\": 10,\n            \"title\": null,\n            \"price\": -10\n        },\n        {\n            \"pid\": 11,\n            \"title\": null,\n            \"price\": -10\n        },\n        {\n            \"pid\": 12,\n            \"title\": null,\n            \"price\": -10\n        },\n        {\n            \"pid\": 13,\n            \"title\": null,\n            \"price\": -10\n        },\n        {\n            \"pid\": 14,\n            \"title\": \"Su\",\n            \"price\": 10\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "product/save",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "ali@mail.com",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "12345",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\" : \"Y Su 1Lt\",\n    \"price\" : 10\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8090/product/save",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"product",
+						"save"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "http://localhost:8090/product/save",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\" : \"Su\",\n    \"price\" : 10\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8090/product/save",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"product",
+								"save"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "1; mode=block"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 24 Dec 2022 10:58:19 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": false,\n    \"message\": \"Title Unique\",\n    \"result\": {\n        \"pid\": null,\n        \"title\": \"Su\",\n        \"price\": 10\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "product/update",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"pid\": 15,\n    \"title\": \"Uludağ 1Lt Su\",\n    \"price\": -1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8090/product/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"product",
+						"update"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "http://localhost:8090/product/update",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"pid\": 15,\n    \"title\": \"Uludağ 1Lt Su\",\n    \"price\": -1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8090/product/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"product",
+								"update"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "1; mode=block"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 24 Dec 2022 11:42:19 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": false,\n    \"errors\": [\n        {\n            \"field\": \"price\",\n            \"message\": \"must be greater than or equal to 0\"\n        },\n        {\n            \"field\": \"price\",\n            \"message\": \"1 ve 100000 arasında olmalıdır!\"\n        },\n        {\n            \"field\": \"price\",\n            \"message\": \"'1' değerinden büyük yada eşit olmalı\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "product/delete/erkan",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8090/product/delete/erkan",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"product",
+						"delete",
+						"erkan"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "http://localhost:8090/product/delete/erkan",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8090/product/delete/erkan",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"product",
+								"delete",
+								"erkan"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "1; mode=block"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 24 Dec 2022 11:54:48 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": false,\n    \"message\": \"Delete Error (ID) :erkan\"\n}"
+				}
+			]
+		},
+		{
+			"name": "note/list",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "zehra@mail.com",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "12345",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8090/note/list",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"note",
+						"list"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "http://localhost:8090/note/list",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8090/note/list",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"note",
+								"list"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "1; mode=block"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 24 Dec 2022 12:33:55 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": true,\n    \"result\": [\n        {\n            \"nid\": 1,\n            \"title\": \"Yılbaşı Tatili\",\n            \"detail\": \"Tatil Detayı\"\n        },\n        {\n            \"nid\": 3,\n            \"title\": \"Toplantı\",\n            \"detail\": \"Note Detayı\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "note/save",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"Toplantı\",\n    \"detail\" : \"Note Detayı\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8090/note/save",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"note",
+						"save"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "http://localhost:8090/note/save",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Toplantı\",\n    \"detail\" : \"Note Detayı\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8090/note/save",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"note",
+								"save"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "1; mode=block"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 24 Dec 2022 12:33:52 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": true,\n    \"result\": {\n        \"nid\": 3,\n        \"title\": \"Toplantı\",\n        \"detail\": \"Note Detayı\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "http://localhost:8090/register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"mehmet@mail.com\",\n    \"password\": \"12345\",\n    \"enable\": true,\n    \"roles\": [\n        { \"rid\": 1 },\n        { \"rid\": 2 }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8090/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"register"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
