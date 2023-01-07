@@ -16,8 +16,8 @@ public class ProductRestController {
     final ProductService productService;
 
     @GetMapping("/list")
-    public ResponseEntity list() {
-        return productService.list();
+    public ResponseEntity list( @RequestParam(defaultValue = "0") int page ) {
+        return productService.list(page);
     }
 
     @PostMapping("/save")

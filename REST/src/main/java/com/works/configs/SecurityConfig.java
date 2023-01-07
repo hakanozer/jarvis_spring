@@ -31,6 +31,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         .authorizeRequests()
         .antMatchers("/product/**").hasRole("product")
         .antMatchers("/note/**").hasRole("note")
+        .antMatchers("/actuator/**").permitAll()
         .and()
         .csrf().disable().formLogin().disable();
 
