@@ -9,7 +9,7 @@ import javax.validation.constraints.*;
 
 @Entity
 @Data
-public class Product {
+public class Product extends Base {
 
     @Min(1)
     @Id

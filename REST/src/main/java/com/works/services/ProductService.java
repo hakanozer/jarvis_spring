@@ -48,6 +48,10 @@ public class ProductService {
         Map<REnum, Object> hm = new LinkedHashMap<>();
         Optional<Product> optionalProduct = repository.findById(product.getPid());
         if (optionalProduct.isPresent()) {
+            Product p = optionalProduct.get();
+
+            product.setCreatedBy(p.getCreatedBy());
+            product.setCreatedDate(p.getCreatedDate());
             repository.saveAndFlush(product);
             hm.put(REnum.status, true);
             hm.put(REnum.result, product );
